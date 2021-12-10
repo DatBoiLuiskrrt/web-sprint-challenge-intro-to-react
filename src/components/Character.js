@@ -9,17 +9,18 @@ function Character() {
     axios
       .get(`https://swapi.dev/api/people`)
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         setCharacter(res.data);
       })
       .catch((error) => {
         console.log(`There is an error bro 😭😟😞💔💔💔 ${error}`);
       });
   }, []);
+
   return (
     <>
-      {character.map((characters) => {
-        return <CharacterList characters={characters} />;
+      {character.map((characters, index) => {
+        return <CharacterList characters={characters} key={index} />;
       })}
     </>
   );
